@@ -1,0 +1,46 @@
+{
+  "name": "capstoneproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "starts": "nodemon server.js",
+    "serve": "node server.js",
+    "watch": "mix watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "18.x"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.6.0",
+    "connect-redis": "^6.1.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "mongoose": "^6.4.6",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.7.7",
+    "nodemon": "^2.0.19",
+    "redis": "^4.2.0",
+    "socket.io": "^4.5.1",
+    "stripe": "^10.0.0"
+  },
+  "devDependencies": {
+    "laravel-mix": "^6.0.49",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.53.0",
+    "sass-loader": "^12.6.0"
+  }
+}

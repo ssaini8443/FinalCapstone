@@ -1,0 +1,190 @@
+.primary-color-1 {
+  color: #fd9d3e;
+}
+
+nav li:hover {
+  color: #fd9d3e;
+  transition: all 0.3s ease-in-out;
+}
+
+.banner-text-color {
+  color: #fd9d3e;
+}
+
+.my-btn-1 {
+  background: #fd9d3e;
+  border: 1px solid #fd9d3e;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 17px 41px;
+  border-radius: 50px;
+  display: inline-block;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 40px;
+}
+.my-btn-1:hover {
+  color: #fd9d3e;
+  background-color: #ffffff;
+  transition: all 0.3s ease-in-out;
+}
+
+nav li:hover {
+  color: #fd9d3e;
+  transition: all 0.3s ease-in-out;
+}
+
+.quality {
+  background-color: #fd9d3e;
+}
+
+.quality-section-icons:hover {
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.producty-price {
+  color: #fd9d3e;
+}
+
+.add-cart-btn {
+  background: #121619;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid #121619;
+  border-radius: 50px;
+  display: inline-block;
+  padding: 15px 20px;
+}
+.add-cart-btn:hover {
+  color: #fd9d3e;
+  background-color: #ffffff;
+  transition: all 0.3s ease-in-out;
+}
+
+.placeorder-btn {
+  background: #121619;
+  color: #fd9d3e;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid #121619;
+  border-radius: 20px;
+  display: inline-block;
+  padding: 15px 20px;
+}
+.placeorder-btn:hover {
+  color: #121619;
+  background-color: #fd9d3e;
+  transition: all 0.3s ease-in-out;
+}
+
+.table-order-link {
+  color: #fd9d3e;
+}
+.table-order-link:hover {
+  font-style: italic;
+  transition: all 0.3s ease-in-out;
+}
+
+#call-btn {
+  border: 10px solid #fd9d3e;
+  display: inline-block;
+  background-color: #121619;
+  color: white;
+  padding: 20px;
+}
+#call-btn:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.orderbox ul li span {
+  position: relative;
+  padding-left: 20px;
+}
+
+.orderbox ul li span:after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  background: black;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.orderbox ul li {
+  position: relative;
+}
+
+.orderbox ul li:before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: -6px;
+  width: 2px;
+  height: 100%;
+  background: black;
+  margin-top: 15px;
+}
+
+.orderbox ul li:nth-child(5) span:after {
+  box-shadow: 0 20px 1px 20px white;
+}
+
+.orderbox ul li.complete:before {
+  background: #D8D8D8;
+}
+
+.orderbox ul li.complete span:after {
+  background: #D8D8D8;
+}
+
+.orderbox ul li.complete span {
+  color: #D8D8D8;
+}
+
+.orderbox ul li.live span {
+  color: #91b842;
+}
+
+.orderbox ul li.live span:after {
+  background: #91b842;
+}
+
+@media (max-width: 900px) {
+  .container {
+    max-width: 85%;
+  }
+}
+.StripeElement {
+  box-sizing: border-box;
+  width: 40%;
+  height: 40px;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}

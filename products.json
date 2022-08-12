@@ -1,0 +1,57 @@
+[{
+  "_id": {
+    "$oid": "5eee651f739f8c674fd736ee"
+  },
+  "productName": "Margherita",
+  "productImage": "https://res.cloudinary.com/df3oeiwmb/image/upload/v1658538673/capstone%20project/single-pizza-pic_gpnvl4.png",
+  "productPrice": "250"
+},{
+  "_id": {
+    "$oid": "5eee6671a27a66807cf2bea3"
+  },
+  "productName": "Marinara",
+  "ProductImage": "https://res.cloudinary.com/df3oeiwmb/image/upload/v1658538673/capstone%20project/single-pizza-pic_gpnvl4.png",
+  "productPrice": "300"
+},{
+  "_id": {
+    "$oid": "5eee6692a27a66807cf2bea4"
+  },
+  "productName": "Carbonara",
+  "ProductImage": "https://res.cloudinary.com/df3oeiwmb/image/upload/v1658538673/capstone%20project/single-pizza-pic_gpnvl4.png",
+  "productPrice": "200"
+},{
+  "_id": {
+    "$oid": "5eee66a5a27a66807cf2bea5"
+  },
+  "productName": "Americana",
+  "ProductImage": "https://res.cloudinary.com/df3oeiwmb/image/upload/v1658538673/capstone%20project/single-pizza-pic_gpnvl4.png",
+  "productPrice": "500"
+},{
+  "_id": {
+    "$oid": "5eee66c4a27a66807cf2bea6"
+  },
+  "productName": "Chicken Mushroom",
+  "ProductImage": "https://res.cloudinary.com/df3oeiwmb/image/upload/v1658538673/capstone%20project/single-pizza-pic_gpnvl4.png",
+  "productPrice": "350"
+},{
+  "_id": {
+    "$oid": "5eee66cfa27a66807cf2bea7"
+  },
+  "productName": "Paneer pizza",
+  "ProductImage": "https://res.cloudinary.com/df3oeiwmb/image/upload/v1658538673/capstone%20project/single-pizza-pic_gpnvl4.png",
+  "productPrice": "200"
+},{
+  "_id": {
+    "$oid": "5eee66eea27a66807cf2bea8"
+  },
+  "productName": "Vegies pizza",
+  "ProductImage": "https://res.cloudinary.com/df3oeiwmb/image/upload/v1658538673/capstone%20project/single-pizza-pic_gpnvl4.png",
+  "productPrice": "600"
+},{ 
+  "_id": {
+    "$oid": "5eee6717a27a66807cf2bea9"
+  },
+  "productName": "Pepperoni",
+  "ProductImage": "https://res.cloudinary.com/df3oeiwmb/image/upload/v1658538673/capstone%20project/single-pizza-pic_gpnvl4.png",
+  "productPrice": "500"
+}]
