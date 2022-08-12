@@ -38,6 +38,13 @@ function websiteRoutes(app) {
 
 
 
+    app.get('/products', renderProducts)
+
+
+    app.get('/cart', (req, res) => { res.render('cart') })
+    app.post('/cart/add', addToCart)
+
+
 
 
 }
@@ -240,6 +247,39 @@ async function handleSingleOrder(req, res) {
     const order = await Order.findOne({ _id: req.params.orderid });
     res.render('singleorder', { order, moment });
 
+}
+
+
+
+
+// render products page
+async function renderProducts(req, res) {
+    const products = await Product.find({})
+    // console.log(products)
+    return res.render('products', { products })
+}
+
+
+
+//add products to cart session
+async function addToCart(req, res) {
+    let scart = req.session.shoppingCart
+
+    if (!scart.cartitems[req.body._id]) {
+        scart.cartitems[req.body._id] = {
+            cartproduct: req.body,
+            quantity: 1
+        }
+        scart.totalitems = scart.totalitems + 1
+        scart.totalcost = scart.totalcost + req.body.productPrice
+    } else {
+        scart.cartitems[req.body._id].quantity = scart.cartitems[req.body._id].quantity + 1
+        scart.totalitems = scart.totalitems + 1
+        scart.totalcost = scart.totalcost + req.body.productPrice
+    }
+
+
+    return res.json({ data: req.session.shoppingCart })
 }
 
 
