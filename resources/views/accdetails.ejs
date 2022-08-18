@@ -1,0 +1,46 @@
+<div class="bg-white py-6 sm:py-8 lg:py-12">
+    <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
+        <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-8">Update Details</h2>
+
+        <form class="max-w-lg border rounded-lg mx-auto" method="POST" action="/accdetails">
+            <div class="flex flex-col gap-4 p-4 md:p-8">
+
+                <div>
+                    <label for="email" class="text-gray-800 text-sm inline-block text-sm sm:text-base mb-2">Email</label>
+                    <input name="email" value="<%= accdetails.email; %>" disabled
+                        class="w-full ring-indigo-300 bg-gray-200 py-2 text-gray-800 transition focus:ring rounded border outline-none duration-100 px-3" />
+                </div>
+
+
+
+                <div>
+                    <label for="username" class="text-gray-800 text-sm inline-block text-sm sm:text-base mb-2">User Name</label>
+                    <input name="username" value="<%= accdetails.name; %>"
+                        class="w-full  outline-none duration-100 border px-3 focus:ring transition text-gray-800 ring-orange-300 py-2 rounded" />
+                </div>
+
+                
+
+                <div>
+                    <label for="cpassword" class="text-gray-800 text-sm inline-block sm:text-base mb-2">Current Password</label>
+                    <input name="cpassword"
+                        class="w-full  outline-none duration-100 border px-3 focus:ring transition text-gray-800 ring-orange-300 py-2 rounded" />
+                </div>
+
+
+                <div>
+                    <label for="upassword" class="text-sm text-gray-800 inline-block sm:text-base mb-2">Updated Password</label>
+                    <input name="upassword"
+                        class="w-full  outline-none duration-100 border px-3 focus:ring transition text-gray-800 ring-orange-300 py-2 rounded" />
+                </div>
+
+                <button
+                    class="active:bg-orange-500 text-white bg-orange-400 ring-orange-200 text-sm focus-visible:ring block hover:bg-orange-500 md:transition text-center rounded-lg font-semibold text-base outline-none duration-100 px-8 py-3">Update
+                    Details</button>
+
+            </div>
+
+
+        </form>
+    </div>
+</div>

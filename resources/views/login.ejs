@@ -1,13 +1,10 @@
 <body>
-
-
-
-    <div class="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center px-5 py-5">
-        <div class="bg-gray-100 text-gray-500 rounded-3xl drop-shadow-2xl w-full overflow-hidden"
+    
+    <div class="px-5 items-center flex justify-center bg-gray-100 min-h-screen min-w-screen py-5">
+        <div class="bg-gray-100 w-full overflow-hidden drop-shadow-2xl text-gray-500 rounded-3xl"
             style="max-width:1000px">
             <div class="md:flex w-full">
                 <div class="hidden md:block w-1/2 bg-orange-300 py-10 px-10">
-                    <!-- https://assets3.lottiefiles.com/packages/lf20_gjmecwii.json -->
                     <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_gjmecwii.json"
                         background="transparent" speed="1" loop autoplay>
                     </lottie-player>
@@ -15,7 +12,7 @@
                 </div>
                 <div class="w-full md:w-1/2 py-10 px-5 md:px-10">
                     <div class="text-center mb-10">
-                        <h1 class="font-bold text-3xl text-gray-900 mb-4">LOGIN</h1>
+                        <h1 class="mb-4 text-3xl text-gray-900 font-bold">LOGIN</h1>
                         <p>Enter your information to Login</p>
                     </div>
 
@@ -29,10 +26,10 @@
                                 <label for="" class="text-xs font-semibold px-1">Email</label>
                                 <div class="flex">
                                     <div
-                                        class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                                        <i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
+                                        class="flex pl-1 z-10 w-10 justify-center pointer-events-none text-center items-center">
+                                        <i class="mdi-email-outline mdi text-lg text-gray-400"></i></div>
                                     <input type="email"
-                                        class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-orange-400"
+                                        class="pl-10 -ml-10 outline-none pr-3 w-full py-2 border-gray-200 border-2 focus:border-orange-400 rounded-lg"
                                         placeholder="Email" name="email" id="email">
                                 </div>
                             </div>
@@ -42,10 +39,10 @@
                                 <label for="" class="text-xs font-semibold px-1">Password</label>
                                 <div class="flex">
                                     <div
-                                        class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                                        <i class="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
+                                        class="flex pl-1 z-10 w-10 justify-center pointer-events-none text-center items-center">
+                                        <i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
                                     <input type="password"
-                                        class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-orange-400"
+                                        class="pl-10 -ml-10 outline-none pr-3 w-full py-2 border-gray-200 border-2 focus:border-orange-400 rounded-lg"
                                         placeholder="*******" name="password" id="password">
                                 </div>
                             </div>
@@ -53,7 +50,7 @@
                         <div class="flex -mx-3">
                             <div class="w-full px-3 mb-5">
                                 <button
-                                    class="block w-full max-w-xs mx-auto bg-orange-400 hover:bg-orange-500 focus:bg-orange-500 text-white rounded-lg px-3 py-3 font-semibold"
+                                    class="rounded-lg px-3 text-white focus:bg-orange-500 py-3 hover:bg-orange-500 block w-full font-semibold max-w-xs bg-orange-400 mx-auto"
                                     type="submit">LOGIN</button>
                             </div>
                         </div>

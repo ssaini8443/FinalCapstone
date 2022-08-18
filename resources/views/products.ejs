@@ -1,0 +1,43 @@
+<body>
+    <section class="menu container mx-auto py-8">
+        <h1 class="font-family-2 text-center mb-8 text-5xl primary-color-1">Our Menu</h1>
+        <div class="menu-wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:row-gap-16 col-gap-12 grid-cols-4
+        ">
+
+
+
+
+
+
+
+            <% products.forEach(product=> { %>
+                <div class="p-6">
+                    <img class="h-30 w-30 mb-3 mx-auto" src="<%= product.productImage %>" alt="piiza pic">
+                    <div>
+                        <h3 class="mb-6 text-center uppercase">
+                            <%= product.productName %>
+                        </h3>
+                        <div class="flex items-center justify-around px-9">
+                            <span class="producty-price font-bold">
+                                <%= product.productPrice %>$
+                            </span>
+                            <button data-product="<%= JSON.stringify(product) %>" class="add-cart-btn">
+                                <span>Add to cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+
+
+
+
+        </div>
+    </section>
+
+
+
+            </div>
+        </div>
+    </div>
+</body>

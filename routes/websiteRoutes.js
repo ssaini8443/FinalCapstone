@@ -24,7 +24,18 @@ function websiteRoutes(app) {
     app.get('/register', redirectUser, (req, res) => { res.render('register') })
     app.post('/register', registerUser)
 
-    
+    app.get('/accdetails', (req, res, next) => { if (req.session.user) { next() } else { res.redirect('/') } }, accDetails)
+    app.post('/accdetails', updateaccDetails)
+
+
+
+
+    app.get('/products', renderProducts)
+
+
+    app.get('/cart', (req, res) => { res.render('cart') })
+    app.post('/cart/add', addToCart)
+
 
     app.get('/orders', renderOrders); // AUTHENTICATE USER LATER 
     app.post('/order', handleOrder);
@@ -38,26 +49,133 @@ function websiteRoutes(app) {
 
 
 
-    app.get('/products', renderProducts)
+    app.get('/contactus', (req, res) => { res.render('contactus') });
+    app.get('/aboutus', (req, res) => { res.render('aboutus') });
 
 
-    app.get('/cart', (req, res) => { res.render('cart') })
-    app.post('/cart/add', addToCart)
+    app.post('/tablebook', tablebook);
+    app.post('/contactus', contactus);
 
-
+    app.post('/clearcart', clearcart);
 
 
 }
 
+async function tablebook(req, res) {
+    console.log(req.body);
 
+    const nodemailer = require('nodemailer');
 
+    var transport = nodemailer.createTransport({
+        host: "smtp.ethereal.email",
+        port: 587,
+        auth: {
+            user: 'gail22@ethereal.email',
+            pass: 'u33UnT9KXy4NSqjuRW'
+        }
+    });
+
+    console.log(transport);
+
+    let date_ob = new Date();
+    let date = date_ob.getDate();
+    let month = date_ob.getMonth() + 1;
+    let year = date_ob.getFullYear();
+    let time = date_ob.getTime();
     
+    let random = Math.floor(Math.random() * 15) + 1;
+    const email = req.body.email;
+    const name = req.body.name;
+    const message = {
+        from: 'support@pizzapoint.me', 
+        to: email,        
+        subject: 'Table Booking', 
+        text: 'Hello, ' + name + '\n\n' + 'You have successfully booked a table for ' + date +'-'+ month+'-'+year +'  Your Table No. is '+ random+ '  Thank you for using our service.'
+    };
+
+
+    transport.sendMail(message, function (err, info) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(info);
+        }
+    });
+    return res.json({ success: true, message: 'Thankyou Your Table is Booked' });
+
+}
+
+
+async function contactus(req, res) {
+    console.log(req.body);
+
+    const nodemailer = require('nodemailer');
+
+    var transport = nodemailer.createTransport({
+        host: "smtp.ethereal.email",
+        port: 587,
+        auth: {
+            user: "gail22@ethereal.email",
+            pass: "u33UnT9KXy4NSqjuRW"
+        }
+    });
+
+
+    let random = Math.floor(Math.random() * 10000) + 1;
+    const message = {
+        from: 'support@pizzapoint.me', 
+        to: req.body.contactemail,        
+        subject: 'Feedback', 
+        text: 'Hello, ' + req.body.contactname + '\n\n' + 'Thankyou For Your Feedback.We are working on your issue and will get back to you soon.'+ '\n\n '+' Your Ticket No. is '+ random
+    };
+
+    transport.sendMail(message, function (err, info) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(info);
+        }
+    });
+    return res.json({ success: true, message: 'Thankyou For Your Feedback' });
+}
+
+
+async function clearcart(req, res) {
+    delete req.session.shoppingCart;
+    return res.redirect('/cart');
+}
 
 
 
+// render products page
+async function renderProducts(req, res) {
+    const products = await Product.find({})
+    // console.log(products)
+    return res.render('products', { products })
+}
 
 
 
+//add products to cart session
+async function addToCart(req, res) {
+    let scart = req.session.shoppingCart
+
+    if (!scart.cartitems[req.body._id]) {
+        scart.cartitems[req.body._id] = {
+            cartproduct: req.body,
+            quantity: 1
+        }
+        scart.totalitems = scart.totalitems + 1
+        scart.totalcost = scart.totalcost + req.body.productPrice
+    } else {
+        scart.cartitems[req.body._id].quantity = scart.cartitems[req.body._id].quantity + 1
+        scart.totalitems = scart.totalitems + 1
+        scart.totalcost = scart.totalcost + req.body.productPrice
+    }
+
+
+    return res.json({ data: req.session.shoppingCart })
+}
 
 
 
@@ -148,6 +266,50 @@ function logoutUser(req, res) {
 }
 
 
+
+
+async function accDetails(req, res) {
+
+    console.log(req.session.user);
+    return res.render('accdetails', { accdetails: req.session.user });
+    // return res.render('accdetails', { accdetails, moment, ordermessage: msg });
+}
+
+async function updateaccDetails(req, res) {
+    // { username: 'user123', cpassword: 'adsf', upassword: 'afds' }
+
+
+
+    console.log(req.body);
+
+
+    const updateddata = {};
+    if (req.body.username) {
+        updateddata.name = req.body.username
+    }
+
+    const isPasswordValid = await bcrypt.compare(req.body.cpassword, req.session.user.password);
+    if (isPasswordValid) {
+        const hashedPassword = await bcrypt.hash(req.body.upassword, 8);
+        updateddata.password = hashedPassword;
+    }
+
+
+
+    User.findByIdAndUpdate(req.session.user._id, updateddata, {
+        useFindAndModify: false
+    }).then(data => {
+        if (!data) {
+            console.log('no data');
+        } else {
+
+            console.log('updated');
+            res.redirect('/accdetails');
+        }
+    }).catch(err => {
+        console.log(err);
+    })
+}
 
 
 async function handleOrder(req, res) {
@@ -247,39 +409,6 @@ async function handleSingleOrder(req, res) {
     const order = await Order.findOne({ _id: req.params.orderid });
     res.render('singleorder', { order, moment });
 
-}
-
-
-
-
-// render products page
-async function renderProducts(req, res) {
-    const products = await Product.find({})
-    // console.log(products)
-    return res.render('products', { products })
-}
-
-
-
-//add products to cart session
-async function addToCart(req, res) {
-    let scart = req.session.shoppingCart
-
-    if (!scart.cartitems[req.body._id]) {
-        scart.cartitems[req.body._id] = {
-            cartproduct: req.body,
-            quantity: 1
-        }
-        scart.totalitems = scart.totalitems + 1
-        scart.totalcost = scart.totalcost + req.body.productPrice
-    } else {
-        scart.cartitems[req.body._id].quantity = scart.cartitems[req.body._id].quantity + 1
-        scart.totalitems = scart.totalitems + 1
-        scart.totalcost = scart.totalcost + req.body.productPrice
-    }
-
-
-    return res.json({ data: req.session.shoppingCart })
 }
 
 

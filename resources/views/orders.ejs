@@ -1,0 +1,92 @@
+<section class="light-section">
+    <div class="container mx-auto p-10">
+        <h1 class="mb-4 font-bold text-lg">Your Orders</h1>
+
+        <% if(ordermessage.length > 0) { %> 
+        <div id="order-alert">
+            <div class="bg-green-200 p-3 w-full rounded">
+                <div class="flex justify-between">
+                    <div class="flex space-x-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                            class="flex-none fill-current text-green-500 h-4 w-4">
+                            <path
+                                d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.25 16.518l-4.5-4.319 1.396-1.435 3.078 2.937 6.105-6.218 1.421 1.409-7.5 7.626z" />
+                        </svg>
+                        <div class="flex-1 leading-tight text-sm text-green-700 font-medium"><%=  ordermessage %> </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <% } %>
+        <table class="w-full table-auto bg-white mt-2">
+            <thead>
+                <tr>
+                    <th class="border-b-2 text-left py-2 border-gray-400 px-4 bg-gray-200 uppercase">Orders</th>
+                    <th class="border-b-2 text-left py-2 border-gray-400 px-4 bg-gray-200 uppercase">Address</th>
+                    <th class="border-b-2 text-left py-2 border-gray-400 px-4 bg-gray-200 uppercase">Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(orders.length) { %> 
+                    <% for(let order of orders) { %>
+                <tr>
+                    <td class="border px-4 py-2">
+                       <a class="table-order-link" href="/order/<%= order._id %>"> <%= order._id %>  </a>
+                    </td>
+                    <td class="border px-4 py-2"><%= order.address %></td>
+                    <td class="border px-4 py-2"><%= moment(order.timestamp).format('hh:mm A') %></td>
+                </tr>
+                    <% } %>
+                <% } else { %>
+                <tr>
+                    
+                    <td class="border px-4 py-2 font-bold" colspan="3">You have no orders</td>
+                    
+                </tr>
+                <% } %>
+                
+
+              
+
+
+                
+            </tbody>
+        </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+</section>

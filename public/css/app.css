@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Pacifico&family=Poppins&display=swap);
 .primary-color-1 {
   color: #fd9d3e;
 }
@@ -5,6 +6,39 @@
 nav li:hover {
   color: #fd9d3e;
   transition: all 0.3s ease-in-out;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.font-family-1 {
+  font-family: "PT Sans Narrow", sans-serif;
+}
+
+.font-family-2 {
+  font-family: "Pacifico", cursive;
+}
+
+.font-family-3 {
+  font-family: "Poppins", sans-serif;
+}
+
+@-webkit-keyframes blinker {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.blink {
+  text-decoration: blink;
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 0.6s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-direction: alternate;
 }
 
 .banner-text-color {
